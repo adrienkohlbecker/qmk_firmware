@@ -1,0 +1,18 @@
+{
+    "keyboard_name": "itsy_bb",
+    "url": "",
+    "maintainer": "ak",
+    "width": 2,
+    "height": 2,
+    "layouts": {
+        "LAYOUT": {
+            "layout": [
+                {"label": "k00", "x": 4, "y": 0},
+                {"label": "k01", "x": 3, "y": 0},
+
+                {"label": "k10", "x": 2, "y": 0},
+                {"label": "k11", "x": 1, "y": 0}
+            ]
+        }
+    }
+}
