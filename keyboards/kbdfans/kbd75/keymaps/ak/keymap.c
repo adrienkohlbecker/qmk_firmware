@@ -1,6 +1,25 @@
 #include QMK_KEYBOARD_H
 #include <sendstring_french_osx.h>
 
+#define APPLE_FN_ENABLE
+
+// KBD75
+// #define VENDOR_ID       0x05ac
+// #define PRODUCT_ID      0x6061
+// #define DEVICE_VER      0x0002
+
+// Magic Keyboard 2nd gen A2450
+// #define VENDOR_ID       0x4B42
+// #define MANUFACTURER    Apple Inc.
+// #define PRODUCT         Magic Keyboard
+// #define PRODUCT_ID      0x029c
+// #define DEVICE_VER      0x0320
+// #define SERIAL_NUMBER   F0T129502BZ13FDAX
+
+// Apple Keyboard with Numeric Keypad A1243
+// #define VENDOR_ID       0x4B42
+// #define PRODUCT_ID      0x024f
+
 enum custom_keycodes {
     QMKBEST = SAFE_RANGE,
     SPOTLIGHT
