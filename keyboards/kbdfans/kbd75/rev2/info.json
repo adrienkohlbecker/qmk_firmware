@@ -4,8 +4,8 @@
     "url": "",
     "maintainer": "qmk",
     "usb": {
-        "vid": "0x05ac",
-        "pid": "0x024f",
+        "vid": "0x05AC",
+        "pid": "0x024F",
         "device_version": "0.0.2"
     },
     "layout_aliases": {
