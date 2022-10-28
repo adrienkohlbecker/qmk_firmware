@@ -22,6 +22,7 @@
 
 enum custom_keycodes {
     QMKBEST = SAFE_RANGE,
+    DICTATION,
     SPOTLIGHT
 };
 
@@ -48,17 +49,32 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-  if (record->event.pressed) {
     switch (keycode) {
       case QMKBEST:
-        SEND_STRING("QMK is the best thing ever!");
-        return false;
+        if (record->event.pressed) {
+          SEND_STRING("QMK is the best thing ever!");
+        } else {
+          host_consumer_send(0);
+        }
+        return false; /* Skip all further processing of this key */
+
+      case DICTATION:
+        if (record->event.pressed) {
+          host_consumer_send(0xCF);
+        } else {
+          host_consumer_send(0);
+        }
+        return false; /* Skip all further processing of this key */
+
       case SPOTLIGHT:
-        SEND_STRING(SS_LGUI(SS_TAP(X_SPACE)));
-        return false;
-    }
-  } else {
-      // when keycode is released
+        if (record->event.pressed) {
+          SEND_STRING(SS_LGUI(SS_TAP(X_SPACE)));
+        } else {
+          host_consumer_send(0);
+        }
+        return false; /* Skip all further processing of this key */
+
+      default:
+        return true; /* Process all other keycodes normally */
   }
-  return true;
 };
